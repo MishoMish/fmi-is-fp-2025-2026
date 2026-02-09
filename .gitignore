@@ -1,0 +1,31 @@
+# Haskell build outputs
+*.o
+*.hi
+*.dyn_o
+*.dyn_hi
+*.hie
+dist/
+dist-newstyle/
+.stack-work/
+.cabal-sandbox/
+cabal.sandbox.config
+*.cabal.bak
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# GHC profiling
+*.prof
+*.hp
+*.aux
+*.tix
+
+# Scheme
+*.so
+*.fasl
