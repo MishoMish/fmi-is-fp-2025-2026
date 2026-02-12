@@ -1,4 +1,4 @@
-# Семинар по Функционално програмиране (ФП) — Академична година 2025–2026
+# Семинар по Функционално програмиране (ФП) - Академична година 2025–2026
 
 Това хранилище съдържа материали от семинарите по **Функционално програмиране** във ФМИ, Софийски университет за специалност **Информационни системи (ИС)**.
 
@@ -32,7 +32,7 @@ fmi-is-fp-2025-2026/
 
 | Ресурс                                                | Описание                             |
 | ----------------------------------------------------- | ------------------------------------ |
-| [Семинар — Пълна навигация](Seminar/README.md)        | Седмичен план, теми и материали      |
+| [Семинар - Пълна навигация](Seminar/README.md)        | Седмичен план, теми и материали      |
 | [Подготовка за Тест 1](Seminar/Test1_Preparation/)    | Задачи за първия тест (Седмици 1–6)  |
 | [Подготовка за Тест 2](Seminar/Test2_Preparation/)    | Задачи за втория тест (Седмици 7–11) |
 | [Подготовка за Изпит](Seminar/Exam_Preparation/)      | Задачи за финалния изпит             |
@@ -42,12 +42,12 @@ fmi-is-fp-2025-2026/
 
 Хранилището е организирано хронологично по седмици. Всяка седмица съдържа:
 
-1. **Theory.md** — Теория с обяснения и дискусия
-2. **Examples.md** — Илюстративни примери с анотации
-3. **Tasks.md** — Задачи за решаване в час
-4. **TasksForHome.md** — Задачи за домашна работа
+1. **Theory.md** - Теория с обяснения и дискусия
+2. **Examples.md** - Илюстративни примери с анотации
+3. **Tasks.md** - Задачи за решаване в час
+4. **TasksForHome.md** - Задачи за домашна работа
 
-> **Това е СЕМИНАР, но с практическа насоченост.** Фокусът е върху разбирането и обясненията, подкрепени с **повече задачи** от типичен семинар. Задачите за в час се решават заедно, а домашните — самостоятелно.
+> **Това е СЕМИНАР, но с практическа насоченост.** Фокусът е върху разбирането и обясненията, подкрепени с **повече задачи** от типичен семинар. Задачите за в час се решават заедно, а домашните - самостоятелно.
 
 Препоръчва се да следвате материалите последователно, тъй като всяка седмица се базира на знания от предишните.
 
@@ -69,7 +69,7 @@ fmi-is-fp-2025-2026/
 
 ---
 
-# Functional Programming (FP) Seminar — Academic Year 2025–2026
+# Functional Programming (FP) Seminar - Academic Year 2025–2026
 
 This repository contains materials from the Functional Programming seminars (Haskell & Scheme) at FMI, Sofia University for **Information Systems (IS)** students.
 
@@ -82,7 +82,7 @@ This repository contains materials from the Functional Programming seminars (Has
 
 ## Repository Structure
 
-- **Seminar/** — Seminar materials organized by week
+- **Seminar/** - Seminar materials organized by week
 
 ## Getting Started
 
@@ -90,9 +90,9 @@ Navigate to [Seminar/README.md](Seminar/README.md) for the full weekly plan and 
 
 Each week contains:
 
-1. **Theory.md** — Conceptual explanation
-2. **Examples.md** — Annotated code examples
-3. **Tasks.md** — In-class exercises (solved together)
-4. **TasksForHome.md** — Homework exercises (solved independently)
+1. **Theory.md** - Conceptual explanation
+2. **Examples.md** - Annotated code examples
+3. **Tasks.md** - In-class exercises (solved together)
+4. **TasksForHome.md** - Homework exercises (solved independently)
 
-> **This is a SEMINAR with a practical orientation.** Theory comes first, but there are more tasks than a typical seminar — split into in-class work and homework.
+> **This is a SEMINAR with a practical orientation.** Theory comes first, but there are more tasks than a typical seminar - split into in-class work and homework.

@@ -1,12 +1,13 @@
-# Седмица 7 — Задачи за в час
+# Седмица 7 - Задачи за в час
 
 ## Задача 1: `Shape`
 
 Дефинирайте тип `Shape` с конструктори `Circle Double`, `Rectangle Double Double` и `Triangle Double Double Double`.
 
 Напишете:
-- `area :: Shape -> Double` — лице
-- `perimeter :: Shape -> Double` — обиколка
+
+- `area :: Shape -> Double` - лице
+- `perimeter :: Shape -> Double` - обиколка
 
 ```haskell
 >>> area (Circle 5)
@@ -62,6 +63,7 @@ data Expr = Lit Double
 Дефинирайте тип `Weekday` с `deriving (Show, Eq, Ord, Enum, Bounded)`.
 
 Напишете:
+
 - `isWeekend :: Weekday -> Bool`
 - `nextDay :: Weekday -> Weekday` (неделя → понеделник)
 - `daysUntilWeekend :: Weekday -> Int`
@@ -77,6 +79,7 @@ data Fraction = Frac Int Int  -- числител, знаменател
 ```
 
 Напишете:
+
 - `simplify :: Fraction -> Fraction`
 - `addFrac :: Fraction -> Fraction -> Fraction`
 - `mulFrac :: Fraction -> Fraction -> Fraction`

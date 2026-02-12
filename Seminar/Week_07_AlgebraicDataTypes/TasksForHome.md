@@ -1,4 +1,4 @@
-# Седмица 7 — Задачи за домашна работа
+# Седмица 7 - Задачи за домашна работа
 
 ## Задача 1: `MyList`
 
@@ -10,6 +10,7 @@ data MyList a = Nil | Cons a (MyList a)
 ```
 
 Имплементирайте:
+
 - `fromList :: [a] -> MyList a`
 - `toList :: MyList a -> [a]`
 - `myLength :: MyList a -> Int`
@@ -26,6 +27,7 @@ data Nat = Zero | Succ Nat
 ```
 
 Имплементирайте:
+
 - `toNat :: Int -> Nat` (за неотрицателни числа)
 - `fromNat :: Nat -> Int`
 - `addNat :: Nat -> Nat -> Nat`
@@ -55,10 +57,11 @@ data Card = Card { rank :: Rank, suit :: Suit }
 ```
 
 Напишете:
-- `fullDeck :: [Card]` — всички 52 карти
-- `cardValue :: Card -> Int` — стойност (2-10, J/Q/K=10, A=11)
-- `handValue :: [Card] -> Int` — сума на стойностите
-- `isFlush :: [Card] -> Bool` — всички карти от една боя
+
+- `fullDeck :: [Card]` - всички 52 карти
+- `cardValue :: Card -> Int` - стойност (2-10, J/Q/K=10, A=11)
+- `handValue :: [Card] -> Int` - сума на стойностите
+- `isFlush :: [Card] -> Bool` - всички карти от една боя
 
 ---
 
@@ -77,8 +80,9 @@ data JSON = JNull
 ```
 
 Напишете:
-- `prettyPrint :: JSON -> String` — форматиран текстов изход
-- `jsonGet :: String -> JSON -> Maybe JSON` — достъп до поле на обект
+
+- `prettyPrint :: JSON -> String` - форматиран текстов изход
+- `jsonGet :: String -> JSON -> Maybe JSON` - достъп до поле на обект
 
 ```haskell
 >>> jsonGet "name" (JObj [("name", JStr "Ivan"), ("age", JNum 20)])

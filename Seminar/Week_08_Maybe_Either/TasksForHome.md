@@ -1,4 +1,4 @@
-# Седмица 8 — Задачи за домашна работа
+# Седмица 8 - Задачи за домашна работа
 
 ## Задача 1: `mapMaybe'` и `catMaybes'`
 
@@ -47,6 +47,7 @@ evalCalc :: CalcExpr -> Either String Double
 ```
 
 Правила:
+
 - Деление на 0 → `Left "Division by zero"`
 - Корен от отрицателно → `Left "Square root of negative number"`
 
