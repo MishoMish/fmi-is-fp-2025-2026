@@ -14,8 +14,8 @@ data Tree a = Empty
   deriving (Show, Eq)
 ```
 
-- `Empty` — празно дърво (лист)
-- `Node left value right` — възел със стойност и две поддървета
+- `Empty` - празно дърво (лист)
+- `Node left value right` - възел със стойност и две поддървета
 
 ```haskell
 --       5
@@ -94,7 +94,7 @@ postorder :: Tree a -> [a]
 postorder Empty          = []
 postorder (Node l x r)   = postorder l ++ postorder r ++ [x]
 
--- Level order (BFS) — по нива
+-- Level order (BFS) - по нива
 levelOrder :: Tree a -> [a]
 levelOrder tree = go [tree]
   where
@@ -116,7 +116,7 @@ ghci> levelOrder exampleTree  -- [5,3,7,1,4,9]
 
 ## 4. Двоично наредено дърво (BST)
 
-BST (Binary Search Tree) поддържа инвариант: за всеки възел, лявото поддърво съдържа по-малки стойности, дясното — по-големи.
+BST (Binary Search Tree) поддържа инвариант: за всеки възел, лявото поддърво съдържа по-малки стойности, дясното - по-големи.
 
 ```haskell
 -- Търсене в BST: O(log n) за балансирано дърво
@@ -200,18 +200,18 @@ ghci> treeFoldr (:) [] exampleTree -- inorder списък
 
 ## Обобщение
 
-| Операция | Сложност (BST баланс.) | Сложност (общо) |
-|----------|----------------------|-----------------|
-| `bstSearch` | O(log n) | O(n) |
-| `bstInsert` | O(log n) | O(n) |
-| `bstDelete` | O(log n) | O(n) |
-| `inorder` | O(n) | O(n) |
-| `treeSize` | O(n) | O(n) |
-| `treeHeight` | O(n) | O(n) |
+| Операция     | Сложност (BST баланс.) | Сложност (общо) |
+| ------------ | ---------------------- | --------------- |
+| `bstSearch`  | O(log n)               | O(n)            |
+| `bstInsert`  | O(log n)               | O(n)            |
+| `bstDelete`  | O(log n)               | O(n)            |
+| `inorder`    | O(n)                   | O(n)            |
+| `treeSize`   | O(n)                   | O(n)            |
+| `treeHeight` | O(n)                   | O(n)            |
 
-| Обхождане | Ред | Приложение |
-|-----------|-----|------------|
-| Inorder | ляво → корен → дясно | Сортиран ред в BST |
-| Preorder | корен → ляво → дясно | Копиране, сериализация |
-| Postorder | ляво → дясно → корен | Изтриване, eval |
-| Level order | по нива | BFS, визуализация |
+| Обхождане   | Ред                  | Приложение             |
+| ----------- | -------------------- | ---------------------- |
+| Inorder     | ляво → корен → дясно | Сортиран ред в BST     |
+| Preorder    | корен → ляво → дясно | Копиране, сериализация |
+| Postorder   | ляво → дясно → корен | Изтриване, eval        |
+| Level order | по нива              | BFS, визуализация      |

@@ -1,4 +1,4 @@
-# Седмица 12 — Задачи за домашна работа
+# Седмица 12 - Задачи за домашна работа
 
 ## Задача 1: BST изтриване
 
@@ -74,6 +74,7 @@ data ExprTree = Lit Double
 ```
 
 Реализирайте:
+
 - `eval :: ExprTree -> Double`
 - `toRPN :: ExprTree -> String` (Reverse Polish Notation)
 - `simplify :: ExprTree -> ExprTree` (опростява: `x + 0 = x`, `x * 1 = x`, `x * 0 = 0`)
@@ -93,6 +94,7 @@ instance Foldable Tree where
 ```
 
 Проверете:
+
 ```haskell
 >>> fmap (*2) (fromList [1,2,3,4,5])   -- дърво с удвоени стойности
 >>> foldr (+) 0 (fromList [1,2,3])     -- 6

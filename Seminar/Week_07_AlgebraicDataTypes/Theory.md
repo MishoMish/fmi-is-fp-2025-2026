@@ -2,7 +2,7 @@
 
 ## Въведение
 
-В Haskell можем да дефинираме свои собствени типове чрез ключовата дума `data`. Тези типове се наричат **алгебрични типове данни** (Algebraic Data Types — ADTs).
+В Haskell можем да дефинираме свои собствени типове чрез ключовата дума `data`. Тези типове се наричат **алгебрични типове данни** (Algebraic Data Types - ADTs).
 
 ---
 
@@ -82,7 +82,7 @@ distance :: Point -> Point -> Double
 distance (x1, y1) (x2, y2) = sqrt ((x2-x1)^2 + (y2-y1)^2)
 ```
 
-> ⚠️ `type` НЕ създава нов тип — `Name` и `String` са напълно взаимозаменяеми.
+> ⚠️ `type` НЕ създава нов тип - `Name` и `String` са напълно взаимозаменяеми.
 
 ---
 
@@ -98,7 +98,7 @@ speed :: Meters -> Seconds -> Double
 speed (Meters m) (Seconds s) = m / s
 ```
 
-> 💡 `newtype` е полезен за type safety — не можем случайно да смесим `Meters` и `Seconds`.
+> 💡 `newtype` е полезен за type safety - не можем случайно да смесим `Meters` и `Seconds`.
 
 ---
 
@@ -184,25 +184,25 @@ ghci> [Red ..]       -- [Red, Green, Blue]
 ghci> minBound :: Color  -- Red
 ```
 
-| Клас | Какво генерира |
-|------|----------------|
-| `Show` | Преобразуване до String |
-| `Read` | Четене от String |
-| `Eq` | `==` и `/=` |
-| `Ord` | `<`, `>`, `compare` |
-| `Enum` | `succ`, `pred`, `[..]` |
-| `Bounded` | `minBound`, `maxBound` |
+| Клас      | Какво генерира          |
+| --------- | ----------------------- |
+| `Show`    | Преобразуване до String |
+| `Read`    | Четене от String        |
+| `Eq`      | `==` и `/=`             |
+| `Ord`     | `<`, `>`, `compare`     |
+| `Enum`    | `succ`, `pred`, `[..]`  |
+| `Bounded` | `minBound`, `maxBound`  |
 
 ---
 
 ## Обобщение
 
-| Концепция | Синтаксис | Пример |
-|-----------|-----------|--------|
-| Изброен тип | `data T = A \| B \| C` | `data Color = Red \| Green \| Blue` |
-| Конструктор с данни | `data T = C Type1 Type2` | `data Shape = Circle Double` |
-| Type synonym | `type T = ExistingType` | `type Name = String` |
-| Newtype | `newtype T = C Type` | `newtype Meters = Meters Double` |
-| Record | `data T = T { field :: Type }` | getter функции |
-| Полиморфен тип | `data T a = ...` | `data Maybe a = Nothing \| Just a` |
-| Deriving | `deriving (Show, Eq, ...)` | автоматични инстанции |
+| Концепция           | Синтаксис                      | Пример                              |
+| ------------------- | ------------------------------ | ----------------------------------- |
+| Изброен тип         | `data T = A \| B \| C`         | `data Color = Red \| Green \| Blue` |
+| Конструктор с данни | `data T = C Type1 Type2`       | `data Shape = Circle Double`        |
+| Type synonym        | `type T = ExistingType`        | `type Name = String`                |
+| Newtype             | `newtype T = C Type`           | `newtype Meters = Meters Double`    |
+| Record              | `data T = T { field :: Type }` | getter функции                      |
+| Полиморфен тип      | `data T a = ...`               | `data Maybe a = Nothing \| Just a`  |
+| Deriving            | `deriving (Show, Eq, ...)`     | автоматични инстанции               |

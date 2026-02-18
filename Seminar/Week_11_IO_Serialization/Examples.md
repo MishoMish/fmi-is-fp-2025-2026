@@ -1,6 +1,6 @@
-# Седмица 11 — Примери
+# Седмица 11 - Примери
 
-## Пример 1: Интерактивна програма — число за отгатване
+## Пример 1: Интерактивна програма - число за отгатване
 
 ```haskell
 import System.Random (randomRIO)  -- нужен е пакет random
@@ -31,6 +31,7 @@ guessLoop secret attempts = do
 ## Пример 2: Обработка на CSV файл
 
 Имаме файл `students.csv`:
+
 ```
 Иван,85,90,78
 Мария,92,88,95
@@ -65,18 +66,18 @@ analyzeStudents :: FilePath -> IO ()
 analyzeStudents path = do
   content <- readFile path
   let records = map parseLine (lines content)
-  
+
   putStrLn "=== Резултати ==="
   mapM_ printStudent records
-  
+
   putStrLn ("\nСредна оценка на курса: " ++ show (courseAvg records))
   putStrLn ("Най-добър студент: " ++ bestStudent records)
   where
     printStudent (name, grades) =
       putStrLn (name ++ ": " ++ show grades ++ " (среден: " ++ show (average grades) ++ ")")
-    
+
     courseAvg records = average (concatMap snd records)
-    
+
     bestStudent records =
       fst $ foldl1 (\(n1,g1) (n2,g2) ->
         if average g1 >= average g2 then (n1,g1) else (n2,g2)) records
@@ -100,6 +101,7 @@ writeReport path records = do
 ## Пример 3: Четене на конфигурационен файл
 
 Конфигурационен файл `config.txt`:
+
 ```
 host=localhost
 port=8080
