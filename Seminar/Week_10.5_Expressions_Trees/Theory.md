@@ -29,6 +29,20 @@ data Expression = Constant Int
                 | Op Expression Char Expression
 ```
 
+### Визуален пример
+
+Изразът `(1 + x) * 3` се представя като следното дърво:
+
+```
+       Op '*'
+      /      \
+   Op '+'   Constant 3
+   /    \
+Constant 1  Var "x"
+```
+
+В Haskell: `Op (Op (Constant 1) '+' (Var "x")) '*' (Constant 3)`
+
 ### Оценка на дървото
 
 Оценката на дървото се състои в неговото обхождане:
@@ -37,9 +51,26 @@ data Expression = Constant Int
 type Environment = [(String, Int)]
 
 eval :: Environment -> Expression -> Int
--- Базови случаи: дървото е Константа или Променлива
--- Рекурсивна стъпка: дървото е Операция (Op left op right)
+eval _ (Constant n)          = n
+eval env (Var name)          =
+  case lookup name env of
+    Just val -> val
+    Nothing  -> error $ "Variable " ++ name ++ " not found"
+eval env (Op left '+' right) = eval env left + eval env right
+eval env (Op left '-' right) = eval env left - eval env right
+eval env (Op left '*' right) = eval env left * eval env right
+eval env (Op left '/' right) = eval env left `div` eval env right
 ```
+
+```haskell
+ghci> let env = [("x", 5)]
+ghci> eval env (Op (Op (Constant 1) '+' (Var "x")) '*' (Constant 3))
+18
+ghci> eval env (Var "y")
+*** Exception: Variable y not found
+```
+
+> 💡 **Забележка:** Обхождането е **Postorder** (ляво → дясно → корен) — трябва да оценим поддърветата преди да приложим операцията.
 
 ---
 
@@ -65,6 +96,52 @@ eval :: Environment -> Expression -> Int
 data IntTree = Empty | Node Int IntTree IntTree
 ```
 
+### Визуален пример
+
+```
+         50
+        /   \
+      25     100
+     /  \       \
+   10    30      120
+                 /
+               110
+```
+
+### Имплементация на основните операции
+
+```haskell
+-- Търсене
+search :: Int -> IntTree -> Bool
+search _ Empty = False
+search x (Node val left right)
+  | x == val  = True
+  | x < val   = search x left
+  | otherwise = search x right
+
+-- Вмъкване
+insert :: Int -> IntTree -> IntTree
+insert x Empty = Node x Empty Empty
+insert x (Node val left right)
+  | x == val  = Node val left right  -- вече съществува
+  | x < val   = Node val (insert x left) right
+  | otherwise = Node val left (insert x right)
+
+-- Намиране на минимум (крайно ляво листо)
+bstMin :: IntTree -> Int
+bstMin (Node x Empty _) = x
+bstMin (Node _ left _)  = bstMin left
+```
+
+```haskell
+ghci> search 30 bstTree
+True
+ghci> search 99 bstTree
+False
+ghci> bstMin bstTree
+10
+```
+
 ---
 
 ## 3. Други основни термини и операции при дървета
@@ -74,6 +151,15 @@ data IntTree = Empty | Node Int IntTree IntTree
 - **Братя (Siblings)**: Възли, които имат един и същи родител.
 - **Път от корен до листо (Root-to-leaf path)**: Последователността от възли, тръгвайки от корена надолу до някое от листата.
 - **Дървесни ротации (Tree Rotations)**: Операции, при които се променя структурата на дървото, но се запазва наредбата (напр. LL или RR ротация), често използвани при балансиращи се дървета.
+
+  ```
+  Лява ротация:          Дясна ротация:
+      x                      y
+     / \                    / \
+    A   y        ↔         x   C
+       / \                / \
+      B   C              A   B
+  ```
 - **Подкастряне (Pruning)**: Премахване на всички възли след определено ниво $k$ в дървото.
 - **Симeтрични дървета**: Дърво, чието ляво поддърво е огледален образ на дясното.
 
@@ -100,3 +186,6 @@ data IntTree = Empty | Node Int IntTree IntTree
 | `isBST`         | O(n)                       | O(n)            |
 | `getLeaves`     | O(n)                       | O(n)            |
 | `allPaths`      | O(n)                       | O(n)            |
+| `getLevel k`    | O(n)                       | O(n)            |
+| `prune k`       | O(n)                       | O(n)            |
+| `isSymmetric`   | O(n)                       | O(n)            |
